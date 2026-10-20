@@ -7,7 +7,7 @@
  * optionally data-track-label="..." for an extra parameter.
  */
 (function () {
-  var GA_ID = 'G-XXXXXXXXXX'; // replace with your GA4 Measurement ID
+  var GA_ID = 'G-9NFBESNLGG';
   var KEY = 'pr_analytics_consent';
 
   window.dataLayer = window.dataLayer || [];
