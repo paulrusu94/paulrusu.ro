@@ -256,6 +256,21 @@ h2 {
 .feature li { padding-left: 22px; position: relative; font-size: 0.97rem; }
 .feature li::before { content: ""; position: absolute; left: 0; top: 0.55em; width: 9px; height: 9px; border-radius: 3px; background: var(--accent); transform: rotate(45deg); }
 .feature li strong { font-weight: 600; }
+.mini {
+  margin-top: 18px; position: relative;
+  background: color-mix(in srgb, var(--surface) 86%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-radius: 22px; box-shadow: var(--shadow);
+  padding: clamp(24px, 4vw, 40px);
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 20px 52px;
+}
+.mini h3 { font-family: var(--font-display); font-weight: 750; font-stretch: 112%; font-size: 1.5rem; line-height: 1.1; margin: 0 0 6px; letter-spacing: -0.015em; }
+.mini-url { margin: 0; font-family: var(--font-mono); font-size: 0.9rem; }
+.mini p { margin: 0 0 14px; }
+.mini ul { margin: 0 0 18px; padding: 0; list-style: none; display: grid; gap: 10px; }
+.mini li { padding-left: 22px; position: relative; font-size: 0.97rem; }
+.mini li::before { content: ""; position: absolute; left: 0; top: 0.55em; width: 9px; height: 9px; border-radius: 3px; background: var(--accent); transform: rotate(45deg); }
+.mini .stackline { margin: 0; }
+@media (max-width: 900px) { .mini { grid-template-columns: 1fr; } }
 .stackline { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 6px; margin: 0; }
 .stackline span, .skills dd span {
   font-family: var(--font-mono); font-size: 0.74rem; color: var(--ink);
@@ -452,14 +467,14 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   <section class="band" id="work">
     <div class="wrap">
       <div class="section-head">
-        <p class="kicker">Featured project</p>
-        <h2>Hyper, an ERP and marketplace for Romanian businesses</h2>
+        <p class="kicker">Projects</p>
+        <h2>Products I have built and run</h2>
       </div>
 
       <article class="feature">
         <div>
           <span class="tag">Own product · 2026 – present</span>
-          <h3>SaaS and white-label</h3>
+          <h3>Hyper: ERP and marketplace</h3>
           <p>One platform with three faces: an ERP back office, a multi-vendor marketplace and a public storefront. It runs as a multi-tenant SaaS, and it can also be deployed for a single client as their own branded marketplace, on their domain and in their colours, with little extra development. I designed the architecture, wrote the backend and frontend and run the infrastructure.</p>
           <div class="facts">
             <div class="fact"><b data-count="80" data-prefix="" data-suffix="+">80+</b><span>data models</span></div>
@@ -475,6 +490,23 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
           <li><strong>Self-hosted.</strong> Staging on a bare server with Docker Compose, Caddy and a fail-closed deploy script.</li>
         </ul>
         <p class="stackline"><span>TypeScript</span><span>Node.js</span><span>Fastify</span><span>Prisma</span><span>PostgreSQL</span><span>Redis</span><span>BullMQ</span><span>Meilisearch</span><span>Next.js</span><span>React Query</span><span>Zustand</span><span>Stripe</span><span>Docker</span><span>Caddy</span><span>Vitest</span><span>Playwright</span></p>
+      </article>
+
+      <article class="mini">
+        <div class="mini-head">
+          <span class="tag">Own project · Live</span>
+          <h3>Cazare Mihaieni</h3>
+          <p class="mini-url"><a href="https://cazaremihaieni.ro" target="_blank" rel="noopener">cazaremihaieni.ro</a></p>
+        </div>
+        <div>
+          <p>Bilingual website for holiday cottages near the Mihaieni thermal pool. It already brings in direct bookings, and guests find it through search.</p>
+          <ul>
+            <li>Reservation and contact forms with email delivery.</li>
+            <li>Romanian and English versions, with SEO built in: structured data, sitemap and optimized images.</li>
+            <li>Automatic deploys on AWS Amplify.</li>
+          </ul>
+          <p class="stackline"><span>Next.js</span><span>React</span><span>TypeScript</span><span>Tailwind CSS</span><span>next-intl</span><span>Nodemailer</span><span>AWS Amplify</span><span>Google Analytics</span></p>
+        </div>
       </article>
     </div>
   </section>
@@ -681,7 +713,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!reduce && 'IntersectionObserver' in window) {
-    var targets = document.querySelectorAll('.band .section-head, .feature, .filters, .job, .card, .skills > div, .creds > div, .contact h2, .contact-row, .contact .note');
+    var targets = document.querySelectorAll('.band .section-head, .feature, .mini, .filters, .job, .card, .skills > div, .creds > div, .contact h2, .contact-row, .contact .note');
     var counters = document.querySelectorAll('[data-count]');
     var countUp = function (el) {
       var end = parseInt(el.getAttribute('data-count'), 10);
