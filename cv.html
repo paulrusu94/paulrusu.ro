@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Paul Rusu CV</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="CV of Paul Rusu (Rusu Adrian Paul), senior full-stack developer.">
+<link rel="canonical" href="https://paulrusu.ro/cv.html">
+<meta name="theme-color" content="#0b0b0b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2318202b'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-weight='700' font-size='28' text-anchor='middle' fill='%23f0a24a'%3EPR%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&family=Figtree:wght@400;500;600&display=swap">
+<style>
+/* Layout: a plain document on black, one reading column; deliberately single-theme (dark) on screen, light on paper. */
+:root {
+  --bg: #0b0b0b;
+  --fg: #f2f2f0;
+  --muted: #a8a8a4;
+  --link: #6f9ef0;
+  --btn: #1c1c1c;
+  --font-head: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-body: "Figtree", "Segoe UI", system-ui, -apple-system, sans-serif;
+  color-scheme: dark;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html, body { background: var(--bg); color: var(--fg); }
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  padding-block: 28px 96px;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+.doc { max-width: 820px; margin: 0 auto; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; border-radius: 3px; }
+
+.bar { max-width: 820px; margin: 0 auto 56px; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.bar .back { color: var(--muted); font-size: 0.92rem; }
+.bar .back:hover { color: var(--fg); text-decoration: none; }
+.pdf {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--fg); color: var(--bg);
+  font: 600 0.9rem/1 var(--font-body);
+  padding: 12px 18px; border-radius: 999px;
+}
+.pdf:hover { text-decoration: none; opacity: .88; }
+.pdf svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+h1, h2, h3 { font-family: var(--font-head); font-weight: 400; letter-spacing: -0.01em; text-wrap: balance; }
+h1 { font-size: clamp(2.2rem, 6vw, 3.4rem); line-height: 1.1; margin: 0 0 18px; font-weight: 500; }
+h2 { font-size: clamp(1.7rem, 4vw, 2.2rem); line-height: 1.2; margin: 64px 0 22px; }
+h3 { font-size: clamp(1.3rem, 3vw, 1.65rem); line-height: 1.3; margin: 40px 0 10px; }
+p { margin: 0 0 14px; }
+.meta { margin: 0 0 8px; }
+.meta strong { font-weight: 600; }
+.meta em { font-style: italic; }
+ul { margin: 0 0 8px; padding-left: 1.6em; }
+li { margin: 0 0 8px; padding-left: 4px; }
+.skills li strong { font-weight: 600; }
+
+@page { size: A4; margin: 14mm 15mm; }
+@media print {
+  :root { --bg: #ffffff; --fg: #111111; --muted: #555555; --link: #1f4fbf; color-scheme: light; }
+  body { font-size: 10.4px; line-height: 1.45; padding: 0; }
+  .bar { display: none; }
+  .doc { max-width: none; }
+  h1 { font-size: 2.3rem; margin-bottom: 8px; }
+  h2 { font-size: 1.55rem; margin: 18px 0 8px; break-after: avoid; }
+  h3 { font-size: 1.2rem; margin: 12px 0 3px; break-after: avoid; }
+  p { margin-bottom: 6px; }
+  .meta { margin-bottom: 4px; }
+  li { margin-bottom: 2px; break-inside: avoid; }
+  ul { margin-bottom: 4px; }
+}
+</style>
+</head>
+<body>
+<nav class="bar" aria-label="CV actions">
+  <a class="back" href="/">← paulrusu.ro</a>
+  <a class="pdf" href="cv.pdf" download="Paul-Rusu-CV.pdf"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11"/><path d="M7 10l5 5 5-5"/><path d="M5 20h14"/></svg>Download PDF</a>
+</nav>
+
+<main class="doc">
+  <h1>Rusu Adrian Paul</h1>
+  <p class="meta"><strong>Senior Full-Stack Developer</strong> · Zalău, Romania · Open to remote</p>
+  <p class="meta">+40 724 398 522 · <a href="mailto:paul.rusu94@gmail.com">paul.rusu94@gmail.com</a> · <a href="https://linkedin.com/in/paul-adrian-rusu" target="_blank" rel="noopener">linkedin.com/in/paul-adrian-rusu</a></p>
+
+  <h2>Summary</h2>
+  <p>Senior full-stack developer with 10 years of experience building web platforms end to end, from architecture to production. Strong in React, TypeScript, Node.js and Java/Spring, with serverless AWS and self-hosted infrastructure. Led a development team, ran technical interviews and drove migrations from legacy frameworks to modern stacks. Daily user of AI-assisted development and testing to ship faster without lowering quality. Currently contracting for a global sports betting and gaming group on customer-facing pages and internal promotion tools.</p>
+
+  <h2>Experience</h2>
+
+  <h3>Senior Web Developer (Contract) — We as Web · Remote</h3>
+  <p class="meta"><em>Jun 2024 – Present</em> · Client: global sports betting and gaming group · Java, Spring, React, Redux, Angular, FreeMarker, Mustache.java, Couchbase, AWS, Docker, Microservices, Selenium, TestNG</p>
+  <ul>
+    <li>Built and maintained high-traffic customer pages: promotion details, My Account and homepage features.</li>
+    <li>Migrated services from the client's in-house Java framework to Spring, and frontends from the in-house framework and Angular to React.</li>
+    <li>Developed internal tools for promotion management and user management.</li>
+    <li>Implemented privacy policy, consent and re-consent flows.</li>
+    <li>Rebuilt a service UI app in React, Redux and shadcn/ui: dashboard layout, API integration, charts, tables and search.</li>
+    <li>Wrote UI automation tests with Selenium and TestNG; onboarded new team members and worked closely with permanent staff.</li>
+  </ul>
+
+  <h3>Full-Stack Developer &amp; Technical Consultant (Independent) · Remote</h3>
+  <p class="meta"><em>May 2021 – Present</em> · TypeScript, Next.js, Node.js, PHP, AWS Serverless, Solidity, GraphQL, PostgreSQL, Ethereum/EVM</p>
+  <ul>
+    <li>Worked on imobiliare.ro, Romania's leading real estate platform: built a Next.js proof of concept to replace the legacy PHP stack, then shipped new features and a full redesign on the existing PHP platform.</li>
+    <li>Built several crypto-focused applications end to end, from architecture to deployment.</li>
+    <li>Designed secure smart contract interactions with MetaMask for minting and transactions.</li>
+    <li>Technical advisor and developer for an early-stage crypto startup, delivering its first production version.</li>
+    <li>Built event-driven applications on AWS Amplify, CDK, Lambda and DynamoDB.</li>
+  </ul>
+
+  <h3>Senior Developer &amp; Technical Lead — StarChain Solutions · Remote</h3>
+  <p class="meta"><em>Dec 2021 – Feb 2024</em> · Contractor, then full-time employee · Vue, Next.js, TypeScript, AWS Amplify, CDK, Solidity, TailwindCSS, GraphQL</p>
+  <ul>
+    <li>Technical lead for a team of 3 full-stack developers and 2 QA engineers; ran technical interviews for new hires.</li>
+    <li>Led development of a web game platform simulating real horse races with blockchain integration, delivering a complete MVP covering every designed flow.</li>
+    <li>Built the pre-signup website for <a href="https://www.motorverse.com/" target="_blank" rel="noopener">Motorverse</a>.</li>
+    <li>Built proofs of concept for secure, scalable transaction flows and integrated MetaMask wallets.</li>
+  </ul>
+
+  <h3>Web Developer — 3Pillar Global · Cluj-Napoca</h3>
+  <p class="meta"><em>Nov 2018 – May 2021</em> · React, TypeScript, Redux, Java Spring, Node.js, AWS, Serverless</p>
+  <ul>
+    <li>Worked on large-scale products, including search engines and video streaming platforms.</li>
+    <li>Refactored legacy code into modern React and TypeScript.</li>
+    <li>Kept code quality high through Jest unit tests and code reviews.</li>
+    <li>Delivered UI components and secure REST API integrations in agile teams.</li>
+  </ul>
+
+  <h3>UI Web Developer — Pitech Plus · Cluj-Napoca</h3>
+  <p class="meta"><em>Aug 2017 – Oct 2018</em> · React, Redux, Angular, TypeScript, PHP Drupal, Java Spring</p>
+  <ul>
+    <li>Built reusable UI components for complex business apps.</li>
+    <li>Worked on e-commerce, remote device management and automotive finance products.</li>
+    <li>Connected React and AngularJS frontends to PHP and Java backends.</li>
+  </ul>
+
+  <h3>Junior UI Web Developer — HSDS · Cluj-Napoca</h3>
+  <p class="meta"><em>Jun 2016 – Jul 2017</em> · AngularJS, Java Spring, PHP, PostgreSQL, jQuery, Bootstrap</p>
+  <ul>
+    <li>Built and maintained websites for international hotel brands.</li>
+    <li>Developed features and dashboards for hotel revenue management systems.</li>
+  </ul>
+
+  <h2>Projects</h2>
+
+  <h3>Hyper — Multi-tenant ERP &amp; Marketplace (own product) · 2026 – Present</h3>
+  <p class="meta"><em>TypeScript, Node.js, Fastify, Prisma, PostgreSQL, Redis, BullMQ, Meilisearch, Next.js, React Query, Zustand, Stripe, Docker, Caddy, Vitest, Playwright</em></p>
+  <ul>
+    <li>Designed and built a multi-tenant SaaS for Romanian businesses: ERP back office, multi-vendor marketplace and public storefront.</li>
+    <li>Backend of 80+ data models: inventory across warehouses, sales and purchase orders, invoicing, payments, returns and reporting.</li>
+    <li>Tenant isolation with PostgreSQL row-level security; RBAC with 5 roles and 138 permissions, down to warehouse level.</li>
+    <li>Integrations: ANAF e-Factura (OAuth, outgoing and incoming invoices), SoftOne ERP sync, couriers (FAN Courier, Cargus, Sameday) and Stripe subscriptions with webhooks and usage billing.</li>
+    <li>Marketplace flows for buyers, vendors and admins: cart, checkout, wallet, coupons, reviews, payouts and commission invoices.</li>
+    <li>Contract-first API: OpenAPI spec generated from Zod schemas, typed frontend client generated from it in CI.</li>
+    <li>Self-hosted staging on a bare server with Docker Compose, Caddy and a fail-closed, idempotent CI deploy script.</li>
+    <li>Built end to end with AI-assisted development (Claude Code, agents): planning, coding, ~200 test files and code review.</li>
+  </ul>
+
+  <h2>Skills</h2>
+  <ul class="skills">
+    <li><strong>Languages:</strong> TypeScript, JavaScript, Java, Solidity, PHP</li>
+    <li><strong>Frontend:</strong> React, Redux, Next.js, Vue, Nuxt.js, Angular, TailwindCSS, shadcn/ui, React Query, Zustand</li>
+    <li><strong>Backend:</strong> Node.js, Fastify, Express, NestJS, Java Spring, GraphQL, REST/OpenAPI, microservices, BullMQ</li>
+    <li><strong>Databases &amp; search:</strong> PostgreSQL, Prisma, MySQL, MongoDB, Redis, Couchbase, Meilisearch</li>
+    <li><strong>Cloud &amp; infrastructure:</strong> AWS (Lambda, Amplify, CDK, DynamoDB, S3, SES, ECS), Firebase, Docker, Caddy, self-hosted servers</li>
+    <li><strong>AI-assisted engineering:</strong> Claude Code, AI agents for coding, code review and test automation</li>
+    <li><strong>Testing:</strong> Vitest, Jest, Playwright, Selenium, TestNG</li>
+    <li><strong>DevOps:</strong> GitHub Actions, Jenkins, GitLab CI, infrastructure as code</li>
+    <li><strong>Blockchain:</strong> Ethereum/EVM, smart contracts, MetaMask integration</li>
+    <li><strong>Ways of working:</strong> technical leadership, technical interviews, mentoring, code reviews, remote and distributed teams, legacy migrations</li>
+  </ul>
+
+  <h2>Education</h2>
+  <p><strong>Bachelor's Degree, Automation and Computer Science</strong> — Technical University of Cluj-Napoca · 2013 – 2018</p>
+
+  <h2>Languages</h2>
+  <p>Romanian (native) · English (fluent)</p>
+
+  <h2>Interests</h2>
+  <p>DIY and crafting, beekeeping, agriculture, cooking</p>
+</main>
+</body>
+</html>
