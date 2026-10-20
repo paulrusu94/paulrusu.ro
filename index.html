@@ -517,7 +517,7 @@ footer { background: rgba(12,16,22,.92); }
       <div>
         <p class="eyebrow"><span class="live">Open to full-time roles</span><span>Senior Full-Stack Developer</span><span>Zalău, Romania · Remote</span></p>
         <div class="id">
-          <div class="portrait"><img src="/photo.webp" fetchpriority="high" decoding="async" alt="Portrait of Paul Rusu" width="520" height="520"></div>
+          <div class="portrait"><img src="/photo.webp" srcset="/photo-208.webp 208w, /photo.webp 344w" sizes="(max-width: 693px) 104px, (max-width: 1146px) 15vw, 172px" fetchpriority="high" decoding="async" alt="Portrait of Paul Rusu" width="520" height="520"></div>
           <h1>Paul<br>Rusu</h1>
         </div>
         <p class="lead">I build web platforms end to end, <em>from the React screen to the database row</em>, and everything in between.</p>
@@ -834,12 +834,16 @@ footer { background: rgba(12,16,22,.92); }
         io.unobserve(e.target);
       });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-    targets.forEach(function (el) {
-      if (el.getBoundingClientRect().top < window.innerHeight * 0.92) return;
-      var siblings = Array.prototype.indexOf.call(el.parentNode.children, el);
-      el.style.transitionDelay = (Math.min(siblings, 4) * 70) + 'ms';
-      el.classList.add('reveal');
-      io.observe(el);
+    // read all positions first, then write, to avoid forced reflows
+    var limit = window.innerHeight * 0.92;
+    var below = Array.prototype.filter.call(targets, function (el) { return el.getBoundingClientRect().top >= limit; });
+    requestAnimationFrame(function () {
+      below.forEach(function (el) {
+        var siblings = Array.prototype.indexOf.call(el.parentNode.children, el);
+        el.style.transitionDelay = (Math.min(siblings, 4) * 70) + 'ms';
+        el.classList.add('reveal');
+        io.observe(el);
+      });
     });
   }
 
@@ -851,8 +855,10 @@ footer { background: rgba(12,16,22,.92); }
   if (window.matchMedia && window.matchMedia('(hover: hover)').matches) {
     document.querySelectorAll('.feature, .mini, .job, .card, .stat, .creds > div').forEach(function (el) {
       el.classList.add('glassy');
+      var r = null;
+      el.addEventListener('pointerenter', function () { r = el.getBoundingClientRect(); });
       el.addEventListener('pointermove', function (e) {
-        var r = el.getBoundingClientRect();
+        if (!r) r = el.getBoundingClientRect();
         el.style.setProperty('--mx', (e.clientX - r.left) + 'px');
         el.style.setProperty('--my', (e.clientY - r.top) + 'px');
       });
