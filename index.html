@@ -239,12 +239,8 @@ section.band.stats-band { padding-block: clamp(8px, 2vw, 24px) clamp(56px, 7vw, 
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 .stat span { display: block; margin-top: 10px; font-size: 0.88rem; line-height: 1.35; color: var(--muted); }
-.names { margin: 34px 0 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 28px; }
-.names-label { font-family: var(--font-mono); font-size: 0.76rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
-.name { font-family: var(--font-display); font-weight: 700; font-stretch: 112%; font-size: clamp(1.1rem, 2.2vw, 1.5rem); letter-spacing: -0.01em; color: color-mix(in srgb, var(--ink) 55%, transparent); transition: color .2s; }
-.name:hover { color: var(--ink); }
 @media (max-width: 900px) { .stats { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-@media (max-width: 560px) { .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; } .stat { padding: 18px 14px; } .names-label { flex-basis: 100%; } }
+@media (max-width: 560px) { .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; } .stat { padding: 18px 14px; } }
 
 /* Featured project */
 .feature {
@@ -499,7 +495,6 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         <div class="stat"><b data-count="5" data-suffix="+">5+</b><span>countries reached</span></div>
         <div class="stat"><b data-count="1" data-suffix="M+">1M+</b><span>users of features I built</span></div>
       </div>
-      <p class="names"><span class="names-label">Contributed to products for</span><span class="name">LexisNexis</span><span class="name">Fortune</span><span class="name">Animoca Brands</span><span class="name">imobiliare.ro</span></p>
     </div>
   </section>
 
@@ -752,7 +747,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!reduce && 'IntersectionObserver' in window) {
-    var targets = document.querySelectorAll('.stat, .names, .band .section-head, .feature, .mini, .filters, .job, .card, .skills > div, .creds > div, .contact h2, .contact-row, .contact .note');
+    var targets = document.querySelectorAll('.stat, .band .section-head, .feature, .mini, .filters, .job, .card, .skills > div, .creds > div, .contact h2, .contact-row, .contact .note');
     var counters = document.querySelectorAll('[data-count]');
     var countUp = function (el) {
       var end = parseInt(el.getAttribute('data-count'), 10);
