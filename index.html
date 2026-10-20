@@ -227,24 +227,8 @@ h1 {
 .trace-head .dots i:first-child { background: var(--console-accent); }
 .trace-head span.req { background: var(--console-raise); padding: 4px 10px; border-radius: 999px; color: var(--console-ink); }
 .trace-head b { margin-left: auto; color: var(--console-accent); font-weight: 500; }
-.layers { list-style: none; margin: 0; padding: 0 0 0 24px; position: relative; display: grid; gap: 6px; }
-.layers::before {
-  content: ""; position: absolute; left: 7px; top: 18px; bottom: 18px; width: 2px; border-radius: 2px;
-  background: linear-gradient(var(--console-accent), color-mix(in srgb, var(--console-accent) 10%, var(--console-raise)));
-  opacity: .5;
-}
-.pulse {
-  position: absolute; left: 4px; top: 14px; width: 8px; height: 8px; border-radius: 50%;
-  background: var(--console-accent);
-  box-shadow: 0 0 0 5px color-mix(in srgb, var(--console-accent) 25%, transparent), 0 0 18px var(--console-accent);
-  animation: travel 4.8s cubic-bezier(.6,0,.4,1) infinite;
-}
-@keyframes travel { 0% { top: 14px; } 45% { top: calc(100% - 22px); } 55% { top: calc(100% - 22px); } 100% { top: 14px; } }
+.layers { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
 .layer { position: relative; padding: 10px 14px; border-radius: 10px; background: color-mix(in srgb, var(--console-raise) 60%, transparent); }
-.layer::before {
-  content: ""; position: absolute; left: -20px; top: 18px; width: 6px; height: 6px; border-radius: 50%;
-  background: var(--console-raise);
-}
 .layer .name { display: block; font-size: 0.8rem; font-weight: 500; }
 .layer .tech { display: block; font-size: 0.73rem; color: var(--console-muted); line-height: 1.5; }
 .trace-foot { margin: 14px 0 0; font-size: 0.74rem; color: var(--console-muted); font-family: var(--font-body); }
@@ -395,11 +379,9 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 .hero .actions { animation: rise .7s cubic-bezier(.2,.7,.2,1) .42s both; }
 .hero .trace { animation: console-in 1s cubic-bezier(.2,.7,.2,1) .45s both; }
 @keyframes hit { 0%, 6% { color: var(--console-accent); } 16%, 100% { color: var(--console-ink); } }
-@keyframes hit-dot { 0%, 6% { background: var(--console-accent); } 16%, 100% { background: var(--console-raise); } }
-@keyframes hit-row { 0%, 6% { background: color-mix(in srgb, var(--console-accent) 14%, var(--console-raise)); } 16%, 100% { background: color-mix(in srgb, var(--console-raise) 60%, transparent); } }
+@keyframes hit-row { 0%, 8% { background: color-mix(in srgb, var(--console-accent) 16%, var(--console-raise)); transform: translateX(6px); } 18%, 100% { background: color-mix(in srgb, var(--console-raise) 60%, transparent); transform: none; } }
 .layer { animation: hit-row 4.8s linear infinite; animation-delay: calc(var(--i) * 0.43s); }
 .layer .name { animation: hit 4.8s linear infinite; animation-delay: calc(var(--i) * 0.43s); }
-.layer::before { animation: hit-dot 4.8s linear infinite; animation-delay: calc(var(--i) * 0.43s); }
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
 .reveal.in { opacity: 1; transform: none; }
 
@@ -425,13 +407,13 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .pulse, .fog i, .contact::before, .eyebrow span.live::before, .layer, .layer .name, .layer::before,
+  .fog i, .contact::before, .eyebrow span.live::before, .layer, .layer .name,
   .hero .eyebrow, .hero .id, .hero .portrait::before, .hero .lead, .hero .actions, .hero .cv-row, .hero .trace { animation: none !important; }
   .reveal { opacity: 1; transform: none; }
   * { transition: none !important; }
 }
 @media print {
-  .nav, .filters, .actions, .contact .btn, .pulse, .fog { display: none !important; }
+  .nav, .filters, .actions, .contact .btn, .fog { display: none !important; }
   .contact, footer { background: #fff; color: #000; }
   .contact h2, .email { color: #000; }
   .job.dim { opacity: 1; }
@@ -476,7 +458,6 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       <figure class="trace" aria-label="The layers of a web platform Paul works across">
         <div class="trace-head"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="req">GET /order/1042</span><b>full stack</b></div>
         <ol class="layers">
-          <li class="pulse" aria-hidden="true"></li>
           <li class="layer" style="--i:0"><span class="name">Interface</span><span class="tech">React · Next.js · Vue · Angular · Tailwind</span></li>
           <li class="layer" style="--i:1"><span class="name">API</span><span class="tech">Node.js · Fastify · Java Spring · GraphQL · OpenAPI</span></li>
           <li class="layer" style="--i:2"><span class="name">Jobs &amp; cache</span><span class="tech">Redis · BullMQ · Meilisearch</span></li>
