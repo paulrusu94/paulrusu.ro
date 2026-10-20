@@ -20,6 +20,7 @@
   --muted: #a8a8a4;
   --link: #6f9ef0;
   --btn: #1c1c1c;
+  --cc-bg: #1c1c1c; --cc-fg: #f2f2f0; --cc-accent: #f2f2f0; --cc-on-accent: #0b0b0b; --cc-muted-bg: #2c2c2c;
   --font-head: "Source Serif 4", Georgia, "Times New Roman", serif;
   --font-body: "Figtree", "Segoe UI", system-ui, -apple-system, sans-serif;
   color-scheme: dark;
@@ -64,12 +65,14 @@ p { margin: 0 0 14px; }
 ul { margin: 0 0 8px; padding-left: 1.6em; }
 li { margin: 0 0 8px; padding-left: 4px; }
 .skills li strong { font-weight: 600; }
+.cookie { margin-top: 56px; font-size: 0.85rem; }
+.cookie a { color: var(--muted); }
 
 @page { size: A4; margin: 14mm 15mm; }
 @media print {
   :root { --bg: #ffffff; --fg: #111111; --muted: #555555; --link: #1f4fbf; color-scheme: light; }
   body { font-size: 10.4px; line-height: 1.45; padding: 0; }
-  .bar { display: none; }
+  .bar, .cookie { display: none; }
   .doc { max-width: none; }
   h1 { font-size: 2.3rem; margin-bottom: 8px; }
   h2 { font-size: 1.55rem; margin: 18px 0 8px; break-after: avoid; }
@@ -80,11 +83,12 @@ li { margin: 0 0 8px; padding-left: 4px; }
   ul { margin-bottom: 4px; }
 }
 </style>
+<script src="/analytics.js" defer></script>
 </head>
 <body>
 <nav class="bar" aria-label="CV actions">
-  <a class="back" href="/">← paulrusu.ro</a>
-  <a class="pdf" href="cv.pdf" download="Paul-Rusu-CV.pdf"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11"/><path d="M7 10l5 5 5-5"/><path d="M5 20h14"/></svg>Download PDF</a>
+  <a class="back" href="/" data-track="cv_back_home">← paulrusu.ro</a>
+  <a class="pdf" data-track="cv_download" data-track-label="cv_page" href="cv.pdf" download="Paul-Rusu-CV.pdf"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11"/><path d="M7 10l5 5 5-5"/><path d="M5 20h14"/></svg>Download PDF</a>
 </nav>
 
 <main class="doc">
@@ -198,6 +202,7 @@ li { margin: 0 0 8px; padding-left: 4px; }
 
   <h2>Interests</h2>
   <p>DIY and crafting, beekeeping, agriculture, cooking</p>
+  <p class="cookie"><a href="#" data-consent-open>Cookie settings</a></p>
 </main>
 </body>
 </html>

@@ -360,6 +360,7 @@ h2 {
 .contact p.note { margin: 30px 0 0; color: var(--console-muted); font-size: 0.95rem; max-width: 60ch; }
 
 footer { background: var(--console); color: var(--console-muted); }
+footer a { color: inherit; }
 footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding-block: 0 28px; font-size: 0.85rem; font-family: var(--font-mono); }
 
 /* Motion: load sequence, diagram pulse, scroll reveals */
@@ -413,6 +414,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   .job.dim { opacity: 1; }
 }
 </style>
+<script src="/analytics.js" defer></script>
 </head>
 <body>
 <div class="fog" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
@@ -421,10 +423,10 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   <div class="wrap">
     <a class="mark" href="#top">Paul Rusu<span>.</span></a>
     <ul>
-      <li><a class="link" href="#work">Work</a></li>
-      <li class="hide-sm"><a class="link" href="#approach">Approach</a></li>
-      <li><a class="link" href="#skills">Skills</a></li>
-      <li><a class="link" href="#contact">Contact</a></li>
+      <li><a class="link" href="#work" data-track="nav_click" data-track-label="work">Work</a></li>
+      <li class="hide-sm"><a class="link" href="#approach" data-track="nav_click" data-track-label="approach">Approach</a></li>
+      <li><a class="link" href="#skills" data-track="nav_click" data-track-label="skills">Skills</a></li>
+      <li><a class="link" href="#contact" data-track="nav_click" data-track-label="contact">Contact</a></li>
     </ul>
   </div>
 </nav>
@@ -440,12 +442,12 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         </div>
         <p class="lead">I build web platforms end to end, <em>from the React screen to the database row</em>, and everything in between.</p>
         <div class="actions">
-          <a class="btn primary" href="#contact">Get in touch</a>
-          <a class="btn" href="#work">See my work</a>
+          <a class="btn primary" href="#contact" data-track="cta_get_in_touch">Get in touch</a>
+          <a class="btn" href="#work" data-track="cta_see_my_work">See my work</a>
         </div>
         <div class="cv-row">
-          <a class="btn cv" href="cv.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M10 13h6M10 17h6"/></svg>View CV</a>
-          <a class="pdf-link" href="cv.pdf" download="Paul-Rusu-CV.pdf">or download PDF</a>
+          <a class="btn cv" href="cv.html" data-track="cv_view"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M10 13h6M10 17h6"/></svg>View CV</a>
+          <a class="pdf-link" data-track="cv_download" data-track-label="home" href="cv.pdf" download="Paul-Rusu-CV.pdf">or download PDF</a>
         </div>
       </div>
 
@@ -496,7 +498,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         <div class="mini-head">
           <span class="tag">Own project · Live</span>
           <h3>Cazare Mihaieni</h3>
-          <p class="mini-url"><a href="https://cazaremihaieni.ro" target="_blank" rel="noopener">cazaremihaieni.ro</a></p>
+          <p class="mini-url"><a data-track="project_link" data-track-label="cazaremihaieni.ro" href="https://cazaremihaieni.ro" target="_blank" rel="noopener">cazaremihaieni.ro</a></p>
         </div>
         <div>
           <p>Bilingual website for holiday cottages near the Mihaieni thermal pool. It already brings in direct bookings, and guests find it through search.</p>
@@ -519,13 +521,13 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       </div>
 
       <div class="filters" role="group" aria-label="Filter roles by technology">
-        <button class="filter" type="button" id="f-all" data-tag="all" aria-pressed="true">All</button>
-        <button class="filter" type="button" id="f-react" data-tag="react" aria-pressed="false">React</button>
-        <button class="filter" type="button" id="f-java" data-tag="java" aria-pressed="false">Java / Spring</button>
-        <button class="filter" type="button" id="f-node" data-tag="node" aria-pressed="false">Node.js</button>
-        <button class="filter" type="button" id="f-aws" data-tag="aws" aria-pressed="false">AWS</button>
-        <button class="filter" type="button" id="f-web3" data-tag="web3" aria-pressed="false">Blockchain</button>
-        <button class="filter" type="button" id="f-lead" data-tag="lead" aria-pressed="false">Leadership</button>
+        <button class="filter" type="button" id="f-all" data-tag="all" data-track="experience_filter" data-track-label="all" aria-pressed="true">All</button>
+        <button class="filter" type="button" id="f-react" data-tag="react" data-track="experience_filter" data-track-label="react" aria-pressed="false">React</button>
+        <button class="filter" type="button" id="f-java" data-tag="java" data-track="experience_filter" data-track-label="java" aria-pressed="false">Java / Spring</button>
+        <button class="filter" type="button" id="f-node" data-tag="node" data-track="experience_filter" data-track-label="node" aria-pressed="false">Node.js</button>
+        <button class="filter" type="button" id="f-aws" data-tag="aws" data-track="experience_filter" data-track-label="aws" aria-pressed="false">AWS</button>
+        <button class="filter" type="button" id="f-web3" data-tag="web3" data-track="experience_filter" data-track-label="web3" aria-pressed="false">Blockchain</button>
+        <button class="filter" type="button" id="f-lead" data-tag="lead" data-track="experience_filter" data-track-label="lead" aria-pressed="false">Leadership</button>
       </div>
 
       <ol class="jobs" reversed>
@@ -580,7 +582,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
             <h3>Web Developer</h3>
             <p class="org"><strong>3Pillar Global</strong></p>
             <ul>
-              <li>Contributed to large-scale search and media platforms for clients including LexisNexis and <a href="https://fortune.com/media/" target="_blank" rel="noopener">Fortune</a>.</li>
+              <li>Contributed to large-scale search and media platforms for clients including LexisNexis and <a data-track="project_link" data-track-label="fortune" href="https://fortune.com/media/" target="_blank" rel="noopener">Fortune</a>.</li>
               <li>Refactored legacy code into modern React and TypeScript, backed by Jest tests and code reviews.</li>
             </ul>
             <p class="tech">React · TypeScript · Redux · Java Spring · Node.js · AWS · Serverless</p>
@@ -673,8 +675,8 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       <h2>Open to new full-time roles. Let's talk.</h2>
       <div class="contact-row">
         <span class="email" id="email">paul.rusu94@gmail.com</span>
-        <button class="btn primary copy" type="button" id="copy-email">Copy email</button>
-        <a class="btn" href="https://linkedin.com/in/paul-adrian-rusu" target="_blank" rel="noopener">LinkedIn</a>
+        <button class="btn primary copy" type="button" id="copy-email" data-track="email_copy">Copy email</button>
+        <a class="btn" data-track="linkedin_click" href="https://linkedin.com/in/paul-adrian-rusu" target="_blank" rel="noopener">LinkedIn</a>
         <span class="status" id="copy-status" role="status" aria-live="polite"></span>
       </div>
       <p class="note">Based in Zalău, Romania, and open to remote work.</p>
@@ -685,7 +687,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <footer>
   <div class="wrap">
     <span>© <span id="year">2026</span> Paul Rusu</span>
-    <span>paulrusu.ro</span>
+    <span><a href="#" data-consent-open>Cookie settings</a> · paulrusu.ro</span>
   </div>
 </footer>
 
