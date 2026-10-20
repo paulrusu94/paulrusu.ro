@@ -54,7 +54,7 @@
   --fog-2: #43b3bf;
   --fog-3: #ec8a6c;
   --fog-4: #9a8cf0;
-  --fog-opacity: .42;
+  --fog-opacity: .62;
   --font-display: "Archivo", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
   --font-body: "Figtree", "Segoe UI", system-ui, -apple-system, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
@@ -207,7 +207,7 @@ h1 {
 .trace-head span.req { background: var(--console-raise); padding: 4px 10px; border-radius: 999px; color: var(--console-ink); }
 .trace-head b { margin-left: auto; color: var(--console-accent); font-weight: 500; }
 .layers { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
-.layer { position: relative; padding: 10px 14px; border-radius: 10px; background: color-mix(in srgb, var(--console-raise) 60%, transparent); }
+.layer { position: relative; padding: 10px 14px; border-radius: 14px; background: rgba(255,255,255,.05); box-shadow: inset 0 1px 0 rgba(255,255,255,.06); }
 .layer .name { display: block; font-size: 0.8rem; font-weight: 500; }
 .layer .tech { display: block; font-size: 0.73rem; color: var(--console-muted); line-height: 1.5; }
 .trace-foot { margin: 14px 0 0; font-size: 0.74rem; color: var(--console-muted); font-family: var(--font-body); }
@@ -382,6 +382,61 @@ footer { background: var(--console); color: var(--console-muted); }
 footer a { color: inherit; }
 footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding-block: 0 28px; font-size: 0.85rem; font-family: var(--font-mono); }
 
+/* Liquid glass layer: translucent surfaces, specular rims, pointer-following sheen */
+:root {
+  --glass: linear-gradient(135deg, rgba(255,255,255,.62), rgba(255,255,255,.26));
+  --glass-strong: linear-gradient(135deg, rgba(255,255,255,.78), rgba(255,255,255,.42));
+  --glass-filter: blur(24px) saturate(185%);
+  --glass-rim: inset 0 1px 0 rgba(255,255,255,.9), inset 0 -1px 0 rgba(255,255,255,.28), inset 0 0 0 1px rgba(255,255,255,.42), inset 0 0 24px rgba(255,255,255,.18);
+  --glass-drop: 0 12px 40px -14px rgba(24,32,43,.28), 0 2px 6px rgba(24,32,43,.05);
+  --glass-dark: linear-gradient(135deg, rgba(30,40,54,.78), rgba(14,19,27,.66));
+  --glass-dark-rim: inset 0 1px 0 rgba(255,255,255,.18), inset 0 0 0 1px rgba(255,255,255,.08), inset 0 0 30px rgba(255,255,255,.04);
+  --cc-bg: rgba(255,255,255,.72);
+}
+section.band.alt { background: transparent; }
+.feature, .mini, .job, .card, .creds > div, .stat, .filter, .eyebrow span, .stackline span, .skills dd span, .btn:not(.primary):not(.cv), .nav .wrap {
+  position: relative;
+  background: var(--glass);
+  -webkit-backdrop-filter: var(--glass-filter); backdrop-filter: var(--glass-filter);
+  box-shadow: var(--glass-rim), var(--glass-drop);
+}
+.eyebrow span, .stackline span, .skills dd span, .filter { -webkit-backdrop-filter: none; backdrop-filter: none; background: linear-gradient(135deg, rgba(255,255,255,.7), rgba(255,255,255,.38)); box-shadow: var(--glass-rim), 0 4px 14px -8px rgba(24,32,43,.22); }
+.eyebrow span.live { background: linear-gradient(135deg, color-mix(in srgb, var(--accent-wash) 85%, transparent), rgba(255,255,255,.35)); }
+.job { background: linear-gradient(135deg, rgba(255,255,255,.42), rgba(255,255,255,.16)); }
+.job:hover, .card:hover, .stat:hover, .feature:hover, .mini:hover { background: var(--glass-strong); box-shadow: var(--glass-rim), var(--shadow-lift); }
+.feature, .mini { border-radius: 30px; }
+.card, .stat, .job { border-radius: 26px; }
+.fact { background: linear-gradient(135deg, color-mix(in srgb, var(--accent-wash) 80%, transparent), rgba(255,255,255,.3)); box-shadow: var(--glass-rim); }
+.feature::before { color: rgba(255,255,255,.55); text-shadow: 0 1px 0 rgba(24,32,43,.04); }
+/* sheen that follows the pointer */
+.glassy::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: 2;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, -40%), rgba(255,255,255,.55), transparent 42%);
+  opacity: 0; transition: opacity .35s; mix-blend-mode: soft-light;
+}
+.glassy:hover::after { opacity: 1; }
+/* floating nav capsule */
+.nav { background: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; padding-top: 12px; }
+.nav.scrolled { box-shadow: none; }
+.nav .wrap { width: min(1120px, calc(100% - 32px)); height: 58px; padding: 0 10px 0 24px; border-radius: 999px; }
+.nav a.link:hover { background: rgba(255,255,255,.55); box-shadow: inset 0 1px 0 rgba(255,255,255,.9); }
+body::before { background: transparent; }
+/* buttons */
+.btn.primary {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 82%, #fff) 0%, var(--accent) 55%, color-mix(in srgb, var(--accent) 85%, #000) 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.45), inset 0 -1px 0 rgba(0,0,0,.15), 0 12px 28px -12px color-mix(in srgb, var(--accent) 85%, transparent);
+}
+.btn.cv { background: var(--glass-dark); -webkit-backdrop-filter: var(--glass-filter); backdrop-filter: var(--glass-filter); box-shadow: var(--glass-dark-rim), var(--glass-drop); }
+.filter[aria-pressed="true"] { background: var(--glass-dark); color: #fff; box-shadow: var(--glass-dark-rim), 0 6px 18px -8px rgba(24,32,43,.5); }
+/* console and contact as dark glass */
+.trace { background: var(--glass-dark); -webkit-backdrop-filter: var(--glass-filter); backdrop-filter: var(--glass-filter); box-shadow: var(--glass-dark-rim), var(--shadow-lift); border-radius: 26px; }
+.layer { border-radius: 14px; }
+.trace-head span.req, .trace-head .dots i:not(:first-child) { background: rgba(255,255,255,.08); }
+.contact { background: linear-gradient(180deg, rgba(20,27,37,.84), rgba(12,16,22,.92)); -webkit-backdrop-filter: var(--glass-filter); backdrop-filter: var(--glass-filter); }
+footer { background: rgba(12,16,22,.92); }
+.email, .contact .btn:not(.primary) { background: rgba(255,255,255,.08); box-shadow: var(--glass-dark-rim); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+.portrait img { box-shadow: inset 0 0 0 1px rgba(255,255,255,.4), var(--glass-drop); }
+
 /* Motion: load sequence, diagram pulse, scroll reveals */
 @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 @keyframes frame-in { from { transform: translate(0, 0) rotate(0deg); opacity: 0; } to { transform: translate(12px, 12px) rotate(3deg); opacity: 1; } }
@@ -393,7 +448,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 .hero .actions { animation: rise .7s cubic-bezier(.2,.7,.2,1) .42s both; }
 .hero .trace { animation: console-in 1s cubic-bezier(.2,.7,.2,1) .45s both; }
 @keyframes hit { 0% { color: var(--console-ink); } 9% { color: var(--console-accent); } 24%, 100% { color: var(--console-ink); } }
-@keyframes hit-row { 0% { background: color-mix(in srgb, var(--console-raise) 60%, transparent); transform: none; } 9% { background: color-mix(in srgb, var(--console-accent) 15%, var(--console-raise)); transform: translateX(4px); } 24%, 100% { background: color-mix(in srgb, var(--console-raise) 60%, transparent); transform: none; } }
+@keyframes hit-row { 0% { background: rgba(255,255,255,.05); transform: none; } 9% { background: color-mix(in srgb, var(--console-accent) 20%, rgba(255,255,255,.06)); transform: translateX(4px); } 24%, 100% { background: rgba(255,255,255,.05); transform: none; } }
 .layer { animation: hit-row 7.2s cubic-bezier(.45,0,.55,1) infinite; animation-delay: calc(var(--i) * 0.55s); will-change: transform; }
 .layer .name { animation: hit 7.2s cubic-bezier(.45,0,.55,1) infinite; animation-delay: calc(var(--i) * 0.55s); }
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
@@ -659,7 +714,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       </div>
       <div class="approach">
         <div class="card">
-          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 4.6L18 9.4l-4.2 1.8L12 16l-1.8-4.8L6 9.4l4.2-1.8z"/><path d="M19 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></svg></span>
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 5.5a3 3 0 010 5"/><path d="M18 14c2 .8 3 3 3 6"/></svg></span>
           <h3>Engineering leadership</h3>
           <p>I lead engineering for my clients end to end: setting the technical direction, building and growing teams, and taking applications from first idea to production.</p>
         </div>
@@ -669,7 +724,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
           <p>I design new platforms and bring existing ones up to date, step by step, without disrupting the business that depends on them.</p>
         </div>
         <div class="card">
-          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 5.5a3 3 0 010 5"/><path d="M18 14c2 .8 3 3 3 6"/></svg></span>
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 4.6L18 9.4l-4.2 1.8L12 16l-1.8-4.8L6 9.4l4.2-1.8z"/><path d="M19 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></svg></span>
           <h3>Shipping to production</h3>
           <p>I deliver features that real users rely on every day. AI-assisted workflows help me move faster, while testing and review keep every release production-ready.</p>
         </div>
@@ -784,6 +839,18 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   var nav = document.querySelector('.nav');
   var onScroll = function () { nav.classList.toggle('scrolled', window.scrollY > 8); };
   window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  // liquid glass sheen follows the pointer
+  if (window.matchMedia && window.matchMedia('(hover: hover)').matches) {
+    document.querySelectorAll('.feature, .mini, .job, .card, .stat, .creds > div').forEach(function (el) {
+      el.classList.add('glassy');
+      el.addEventListener('pointermove', function (e) {
+        var r = el.getBoundingClientRect();
+        el.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        el.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      });
+    });
+  }
 
   var copyBtn = document.getElementById('copy-email');
   var status = document.getElementById('copy-status');

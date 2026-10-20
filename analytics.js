@@ -63,7 +63,7 @@
   // Banner
   var css = '' +
     '.cc{position:fixed;z-index:50;left:max(16px,env(safe-area-inset-left,0px));right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));' +
-    'max-width:420px;padding:18px 20px;border-radius:18px;background:var(--cc-bg,#ffffff);color:var(--cc-fg,#18202b);' +
+    'max-width:420px;padding:18px 20px;border-radius:24px;background:var(--cc-bg,#ffffff);-webkit-backdrop-filter:blur(24px) saturate(185%);backdrop-filter:blur(24px) saturate(185%);color:var(--cc-fg,#18202b);' +
     'box-shadow:0 2px 4px rgba(0,0,0,.08),0 24px 60px -18px rgba(0,0,0,.35);font:15px/1.5 "Figtree","Segoe UI",system-ui,sans-serif;' +
     'animation:cc-in .4s cubic-bezier(.2,.7,.2,1) both}' +
     '.cc p{margin:0 0 14px}' +
