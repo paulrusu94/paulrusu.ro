@@ -1,0 +1,33 @@
+# Paul Rusu
+
+> Paul Rusu (Rusu Adrian Paul) is a senior full-stack developer based in Zalău, Romania, with 10+ years of experience building web platforms end to end. He works remotely and is open to new full-time roles.
+
+## Profile
+
+- Senior full-stack developer: React, TypeScript, Next.js, Node.js, Java/Spring, PostgreSQL, AWS and self-hosted infrastructure.
+- Leads engineering for clients end to end: technical direction, building teams, and taking applications from first idea to production.
+- Modernizes existing systems (in-house frameworks to Spring, Angular to React, PHP to Next.js) without disrupting the business.
+- Uses AI-assisted development and agentic workflows, backed by testing and code review.
+- 10+ clients, 20+ projects, 5+ countries, features used by more than 1M users.
+
+## Experience
+
+- Jun 2024 – present: Senior Web Developer (contract), We as Web, for a global sports betting and gaming group. High-traffic customer pages, internal promotion and user management tools, privacy consent flows, framework migrations.
+- May 2021 – present: Full-Stack Developer & Technical Consultant (independent). Work on imobiliare.ro; crypto and web3 applications; event-driven apps on AWS.
+- Dec 2021 – Feb 2024: Senior Developer & Technical Lead, StarChain Solutions. Led a cross-functional team; web3 integrations for games by Animoca Brands; Motorverse pre-signup website.
+- Nov 2018 – May 2021: Web Developer, 3Pillar Global. Search and media platforms for clients including LexisNexis and Fortune.
+- Aug 2017 – Oct 2018: UI Web Developer, Pitech Plus.
+- Jun 2016 – Jul 2017: Web Developer, HSDS. Revenue management application and dashboards for international hotel brands.
+
+## Projects
+
+- Hyper: ERP back office, multi-vendor marketplace and storefront for Romanian businesses. Runs as a multi-tenant SaaS or as a white-label deployment per client. TypeScript, Fastify, Prisma, PostgreSQL, Redis, Next.js, Stripe, ANAF e-Factura.
+- Cazare Mihaieni (https://cazaremihaieni.ro): bilingual booking website for holiday cottages, live and bringing in direct bookings.
+
+## Links
+
+- Website: https://paulrusu.ro/
+- CV: https://paulrusu.ro/cv.html
+- CV (PDF): https://paulrusu.ro/cv.pdf
+- LinkedIn: https://linkedin.com/in/paul-adrian-rusu
+- Email: paul.rusu94@gmail.com
